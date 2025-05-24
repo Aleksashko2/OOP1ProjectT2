@@ -1,3 +1,7 @@
+package CLI.Commands;
+
+import CLI.Command;
+
 public class HelpCommand implements Command {
     @Override
     public void execute() {

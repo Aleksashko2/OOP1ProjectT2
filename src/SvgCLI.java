@@ -1,3 +1,6 @@
+import CLI.Command;
+import CLI.CommandFactory;
+
 import java.util.Scanner;
 
 public class SvgCLI {

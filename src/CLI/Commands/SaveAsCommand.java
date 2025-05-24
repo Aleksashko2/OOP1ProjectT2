@@ -1,3 +1,7 @@
+package CLI.Commands;
+
+import CLI.Command;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

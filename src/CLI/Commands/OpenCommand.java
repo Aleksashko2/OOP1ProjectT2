@@ -1,4 +1,6 @@
-import com.sun.net.httpserver.Authenticator;
+package CLI.Commands;
+
+import CLI.Command;
 
 import java.io.File;
 

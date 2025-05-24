@@ -1,3 +1,7 @@
+package CLI;
+
+import CLI.Commands.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
