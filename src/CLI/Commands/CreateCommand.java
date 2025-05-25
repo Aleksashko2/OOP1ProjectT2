@@ -56,6 +56,7 @@ public class CreateCommand implements Command{
                     int x2 = Integer.parseInt(args[3]);
                     int y2 = Integer.parseInt(args[4]);
                     String stroke = args[5];
+                    shape = new Line(x1, y1, x2, y2, stroke);
                     break;
                 }
                 default:

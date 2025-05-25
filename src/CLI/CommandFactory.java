@@ -3,6 +3,7 @@ package CLI;
 import CLI.Commands.*;
 import svg.core.SvgManager;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +35,25 @@ public class CommandFactory {
                 return null;
             }
             return new OpenCommand(args[0]);
+        });
+        register("translate", args ->{
+            Integer idx = null;
+            int dx = 0, dy = 0;
+            int argOffset = 0;
+           if(args.length > 0){
+               try{
+                    idx = Integer.parseInt(args[0]);
+                    argOffset = 1;
+               }catch(NumberFormatException ignored){}
+           }
+           for(int i = argOffset; i < args.length;i++){
+               if(args[i].startsWith("vertical=")){
+                   dy = Integer.parseInt(args[i].substring("vertical=".length()));
+               }else if(args[i].startsWith("horizontal=")) {
+                   dx = Integer.parseInt(args[i].substring("horizontal=".length()));
+               }
+           }
+            return new TranslateCommand(idx,dx,dy);
         });
 
         register("close", args -> new CloseCommand());
