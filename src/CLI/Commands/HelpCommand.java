@@ -1,13 +1,13 @@
 package CLI.Commands;
 
-import CLI.Command;
-
 public class HelpCommand implements Command {
     @Override
     public void execute() {
         System.out.println("Available options");
         System.out.println(" open [filename]");
         System.out.println(" close");
+        System.out.println(" create [rectangle, circle, line]");
+        System.out.println(" print (Prints the figures in the open file)");
         System.out.println(" save");
         System.out.println(" saveas [filename]");
         System.out.println(" help");

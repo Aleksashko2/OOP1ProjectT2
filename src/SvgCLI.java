@@ -1,4 +1,4 @@
-import CLI.Command;
+import CLI.Commands.Command;
 import CLI.CommandFactory;
 
 import java.util.Scanner;
@@ -11,7 +11,7 @@ public class SvgCLI {
         System.out.println("SVG CLI started. type 'help' for commands.");
 
         while (true) {
-            System.out.println("> ");
+            System.out.print("> ");
             String input = scanner.nextLine().trim();
             if (input.isEmpty()) continue;
 

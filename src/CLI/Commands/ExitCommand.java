@@ -1,7 +1,5 @@
 package CLI.Commands;
 
-import CLI.Command;
-
 public class ExitCommand implements Command {
     @Override
     public void execute() {

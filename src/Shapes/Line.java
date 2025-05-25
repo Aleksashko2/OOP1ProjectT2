@@ -29,7 +29,7 @@ public class Line implements Shape{
 
     @Override
     public String toSVG() {
-        return String.format("<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke=\"%s\">",x1,y1,x2,y2,stroke);
+        return String.format("<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke=\"%s\"/>",x1,y1,x2,y2,stroke);
     }
 
     @Override

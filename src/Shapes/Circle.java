@@ -20,13 +20,13 @@ public class Circle implements Shape{
         circle.setAttribute("cx", String.valueOf(cx));
         circle.setAttribute("cy", String.valueOf(cy));
         circle.setAttribute("r", String.valueOf(r));
-        circle.setAttribute("cx", fill);
+        circle.setAttribute("fill", fill);
         return circle;
     }
 
     @Override
     public String toSVG() {
-        return String.format("<circle cx=\"%d\"> cy=\"%d\"> r=\"%d\"> fill=\"%s\">",
+        return String.format("<circle cx=\"%d\"> cy=\"%d\"> r=\"%d\"> fill=\"%s\"/>",
                 cx, cy, r, fill);
     }
 
@@ -48,6 +48,6 @@ public class Circle implements Shape{
 
     @Override
     public String getType() {
-        return "Circle";
+        return "ircle";
     }
 }

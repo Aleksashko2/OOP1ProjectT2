@@ -3,19 +3,20 @@ package svg.core;
 import Shapes.Shape;
 import java.util.ArrayList;
 import java.util.List;
+import io.SvgWriter;
 
 public class SvgManager {
     private static SvgManager instance;
     private List<Shape> shapes = new ArrayList<>();
     private String filePath;
 
-    public SvgManager() {
-    }
+    private SvgManager() {}
 
     public static SvgManager getInstance(){
         if(instance == null) {
             instance = new SvgManager();
         }
+        //System.out.println("DEBUG: SvgManager instance hash = " + instance.hashCode());
         return instance;
     }
 
@@ -25,7 +26,7 @@ public class SvgManager {
     }
 
     public void save(){
-
+        SvgWriter.write(filePath, shapes);
     }
 
     public void saveAS(String newPath){
@@ -40,9 +41,12 @@ public class SvgManager {
         shapes.remove(index - 1);
         return true;
     }
-
+    public void clear(){
+        shapes.clear();
+        filePath = null;
+    }
     public boolean hasOpenFile() {
-        return filePath != null;
+        return filePath != null && !filePath.isEmpty();
     }
     public boolean translateOne(int index, int dx, int dy){
         if(index < 1 || index > shapes.size()){

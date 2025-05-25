@@ -1,21 +1,18 @@
 package CLI.Commands;
 
-import CLI.Command;
-
-import svg.core.SvgManager;
 import io.SvgWriter;
+import svg.core.SvgManager;
 
 public class SaveCommand implements Command {
-    private final String filename;
 
-    public SaveCommand(String filename) {
-        this.filename = filename;
-    }
-
-    @Override
     public void execute() {
-        if(!SvgManager.getInstance().hasOpenFile()){
-            
+        SvgManager manager = SvgManager.getInstance();
+        String filePath = manager.getFilePath();
+        if (filePath == null || filePath.isEmpty()) {
+            System.out.println("No file is currently open.");
+            return;
         }
+        SvgWriter.write(filePath, manager.getShapes());
+        System.out.println("Successfully saved " + filePath);
     }
 }

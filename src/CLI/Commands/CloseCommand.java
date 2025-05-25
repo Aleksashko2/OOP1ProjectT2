@@ -1,12 +1,11 @@
 package CLI.Commands;
 
-import CLI.Command;
-
 public class CloseCommand implements Command {
 
 
     @Override
     public void execute() {
+        svg.core.SvgManager.getInstance().clear();
         System.out.println("Succesfully closed");
     }
 }

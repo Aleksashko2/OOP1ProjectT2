@@ -38,8 +38,12 @@ public class SvgWriter {
 
 
             // Форамтира xml файла
-
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+
+            //Тъй като презаписваме целият файл и тези конкретни редове се изтриват всеки път се налага да ги връщаме всеки път
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC,"-//W3C//DTD SVG 1.1//EN");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd");
 
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(new File(filePath));

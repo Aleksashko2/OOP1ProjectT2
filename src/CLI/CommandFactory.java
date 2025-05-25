@@ -1,6 +1,7 @@
 package CLI;
 
 import CLI.Commands.*;
+import svg.core.SvgManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,24 +12,33 @@ public class CommandFactory {
     private String currentFile = null;
 
     public CommandFactory() {
+
+        register("create", args -> new CreateCommand(args));
+        register("print", args -> new PrintCommand());
+        register("erase", args -> {
+            if(args.length != 1) {
+                System.out.println("Usage: erase [number/index]");
+                return null;
+            }
+            try{
+                int index = Integer.parseInt(args[0]);
+                return new EraseCommand(index);
+            }catch(NumberFormatException e){
+                System.out.println("Invalid number format" + e);
+                return null;
+            }
+        });
         register("open", args -> {
             if (args.length != 1) {
                 System.out.println("Usages: open[filename]");
                 return null;
             }
-            currentFile = args[0];
-            return new OpenCommand(currentFile);
+            return new OpenCommand(args[0]);
         });
 
         register("close", args -> new CloseCommand());
 
-        register("save", args -> {
-            if (currentFile == null) {
-                System.out.println("No file is currently open.");
-                return null;
-            }
-            return new SaveCommand(currentFile);
-        });
+        register("save", args -> new SaveCommand());
 
         register("saveas", args -> {
             if (args.length != 1) {

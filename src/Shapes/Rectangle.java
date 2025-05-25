@@ -29,7 +29,7 @@ public class Rectangle implements Shape{
 
     @Override
     public String toSVG() {
-        return String.format("<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"%s\"",
+        return String.format("<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"%s\"/>",
                 x, y, width, height, fill);
     }
 
@@ -52,6 +52,6 @@ public class Rectangle implements Shape{
 
     @Override
     public String getType() {
-        return "Rectangle";
+        return "rectangle";
     }
 }

@@ -1,6 +1,7 @@
 package CLI.Commands;
 
-import CLI.Command;
+import io.SvgWriter;
+import svg.core.SvgManager;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -16,8 +17,9 @@ public class SaveAsCommand implements Command {
     @Override
     public void execute() {
         try (FileWriter writer = new FileWriter(filename)) {
-            writer.write("<svg><!-- content --></svg>");
-            System.out.println("Succesfully saved" + new File(filename).getName());
+            SvgManager svgManager = SvgManager.getInstance();
+            SvgWriter.write(filename, SvgManager.getInstance().getShapes());
+            SvgManager.getInstance().load(SvgManager.getInstance().getShapes(), filename);
         } catch (IOException e) {
             System.out.println("Error saving file: " + e.getMessage());
         }
