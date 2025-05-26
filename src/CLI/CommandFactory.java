@@ -13,7 +13,6 @@ public class CommandFactory {
     private String currentFile = null;
 
     public CommandFactory() {
-
         register("create", args -> new CreateCommand(args));
         register("print", args -> new PrintCommand());
         register("erase", args -> {

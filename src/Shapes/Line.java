@@ -27,10 +27,6 @@ public class Line implements Shape{
         return line;
     }
 
-    @Override
-    public String toSVG() {
-        return String.format("<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke=\"%s\"/>",x1,y1,x2,y2,stroke);
-    }
 
     @Override
     public String toText() {
@@ -39,7 +35,7 @@ public class Line implements Shape{
 
     @Override
     public boolean isWithin(Shape region) {
-        return false;
+        return false;//За после
     }
 
     @Override
@@ -50,8 +46,4 @@ public class Line implements Shape{
         this.y2 +=dy;
     }
 
-    @Override
-    public String getType() {
-        return "line";
-    }
 }

@@ -25,15 +25,6 @@ public class SvgManager {
         this.filePath = filePath;
     }
 
-    public void save(){
-        SvgWriter.write(filePath, shapes);
-    }
-
-    public void saveAS(String newPath){
-        this.filePath = newPath;
-        save();
-    }
-
     public boolean erase(int index){
         if(index < 1 || index > shapes.size()){
             return false;

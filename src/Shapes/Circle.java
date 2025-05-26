@@ -25,12 +25,6 @@ public class Circle implements Shape{
     }
 
     @Override
-    public String toSVG() {
-        return String.format("<circle cx=\"%d\"> cy=\"%d\"> r=\"%d\"> fill=\"%s\"/>",
-                cx, cy, r, fill);
-    }
-
-    @Override
     public String toText() {
         return String.format("circle %d %d %d %s",cx, cy, r ,fill);
     }
@@ -46,8 +40,4 @@ public class Circle implements Shape{
     this.cy += dy;
     }
 
-    @Override
-    public String getType() {
-        return "ircle";
-    }
 }

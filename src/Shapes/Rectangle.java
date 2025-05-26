@@ -27,11 +27,6 @@ public class Rectangle implements Shape{
         return rect;
     }
 
-    @Override
-    public String toSVG() {
-        return String.format("<rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" fill=\"%s\"/>",
-                x, y, width, height, fill);
-    }
 
     @Override
     public String toText() {
@@ -41,7 +36,7 @@ public class Rectangle implements Shape{
 
     @Override
     public boolean isWithin(Shape region) {
-        return false;
+        return false;//За после
     }
 
     @Override
@@ -50,8 +45,4 @@ public class Rectangle implements Shape{
         this.y += dy;
     }
 
-    @Override
-    public String getType() {
-        return "rectangle";
-    }
 }
