@@ -19,6 +19,7 @@ public class SvgParser {
 
     public static List<Shape> parse(String filePath) {
         List<Shape> shapes = new ArrayList<>();
+
         try {
             File file = new File(filePath);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

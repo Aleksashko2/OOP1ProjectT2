@@ -16,7 +16,7 @@ public class SvgManager {
         if(instance == null) {
             instance = new SvgManager();
         }
-        //System.out.println("DEBUG: SvgManager instance hash = " + instance.hashCode());
+        //System.out.println("SvgManager instance hash = " + instance.hashCode());
         return instance;
     }
 
@@ -47,9 +47,9 @@ public class SvgManager {
         return true;
     }
     public void printShapes(){
-        int i = 1;
+        int index = 1;
         for(Shape shape: shapes){
-            System.out.printf("%d. %s%n", i++, shape.toText());
+            System.out.printf("%d. %s%n", index++, shape.toText());
         }
     }
     public List<Shape> getShapes(){
