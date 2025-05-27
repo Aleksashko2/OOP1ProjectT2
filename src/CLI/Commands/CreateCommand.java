@@ -48,7 +48,7 @@ public class CreateCommand implements Command{
                 }
                 case "line":{
                     if(args.length != 6){
-                        System.out.println("Usage: Create circle cx, cy, r, fill");
+                        System.out.println("Usage: Create line x1, y1, x2, y2, stroke");
                         return;
                     }
                     int x1 = Integer.parseInt(args[1]);
