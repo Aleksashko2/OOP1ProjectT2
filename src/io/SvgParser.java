@@ -12,7 +12,7 @@ public class SvgParser {
     private static final Map<String, ShapeParser> parsers = new HashMap<>();
 
     static {
-        parsers.put("rectangle", new RectangleParser());
+        parsers.put("rect", new RectangleParser());
         parsers.put("circle", new CircleParser());
         parsers.put("line", new LineParser());
     }

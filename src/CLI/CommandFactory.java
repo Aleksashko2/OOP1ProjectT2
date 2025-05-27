@@ -12,6 +12,23 @@ public class CommandFactory {
     private final Map<String, CommandBuilder> commandMap = new HashMap<>();
     private String currentFile = null;
 
+    public void register(String commandName, CommandBuilder builder) {
+        commandMap.put(commandName.toLowerCase(), builder);
+    }
+
+    public Command createCommand(String inputLine) {
+        String[] parts = inputLine.trim().split("\\s+", 2);
+        String commandName = parts[0].toLowerCase();
+        String[] args = parts.length > 1 ? parts[1].split("\\s+") : new String[0];
+
+        CommandBuilder builder = commandMap.get(commandName);
+        if (builder != null) {
+            return builder.build(args);
+        }
+        System.out.println("Unknown command: " + commandName);
+        return null;
+    }
+
     public CommandFactory() {
         register("create", args -> new CreateCommand(args));
         register("print", args -> new PrintCommand());
@@ -35,7 +52,7 @@ public class CommandFactory {
             }
             return new OpenCommand(args[0]);
         });
-        register("translate", args ->{
+        register("translate",args ->{
             Integer idx = null;
             int dx = 0, dy = 0;
             int argOffset = 0;
@@ -72,20 +89,4 @@ public class CommandFactory {
         register("exit", args -> new ExitCommand());
     }
 
-    public void register(String commandName, CommandBuilder builder) {
-        commandMap.put(commandName.toLowerCase(), builder);
-    }
-
-    public Command createCommand(String inputLine) {
-        String[] parts = inputLine.trim().split("\\s+", 2);
-        String commandName = parts[0].toLowerCase();
-        String[] args = parts.length > 1 ? parts[1].split("\\s+") : new String[0];
-
-        CommandBuilder builder = commandMap.get(commandName);
-        if (builder != null) {
-            return builder.build(args);
-        }
-        System.out.println("Unknown command: " + commandName);
-        return null;
-    }
 }

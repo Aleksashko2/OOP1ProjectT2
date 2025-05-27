@@ -29,7 +29,7 @@ public class TranslateCommand implements Command{
             if (manager.translateOne(index, dx, dy)){
                 System.out.printf("Translated figures (%d)%n", index);
             } else {
-                System.out.printf("No suck figures: %d%n", index);
+                System.out.printf("No such figures: %d%n", index);
             }
         }
     }
